@@ -1,0 +1,25 @@
+.centerVariable{
+  margin:0 auto !important;
+  display: block !important;
+}
+
+.row{
+  margin: 20px !important;
+}
+
+h2{
+  color:white  !important;
+  text-align: center !important;
+}
+h3{
+  color:white  !important;
+  text-align: center !important;
+}
+h1{
+  color:white  !important;
+  text-align: center !important;
+}
+h4{
+  color:white  !important;
+  text-align: center !important;
+}
