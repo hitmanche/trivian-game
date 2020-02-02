@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
+//BURADA 15 SANIYE GERI SAYMA ISLEMINI BIR FONKSIYON HALINE GETIRIP YONETIMI BURADAN SAGLANDI
+//DURDURMA RESETLEME BASLATMA GIBI BILGILERI BURADA YAPIP GAME EKRANINDA KULLANIYORUZ
 export const useStopwatch = () => {
     const [started, setStarted] = useState(false);
     const [sn, setSn] = useState(15);

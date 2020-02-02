@@ -7,6 +7,7 @@ import queryString from 'query-string'
 
 const GameSettings: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
 
+    //KULLANICINDAN KATEGORI VE ZORLUK SEVIYESI SECILMESI SAGLANDI
     const [categoryList, setCategoryList] = useState([]);
     const difficultyList = [
         { id: 'easy', name: 'Easy' },
@@ -17,6 +18,7 @@ const GameSettings: React.FunctionComponent<RouteComponentProps> = ({ history })
     const [selectedCategory, setSelectedCategory] = useState(0);
     const [selectedDifficulty, setSelectedDifficulty] = useState('');
 
+    //EKRAN YUKLENDIGINDE KATEGORI LISTESI CEKILIYOR
     useEffect(() => {
         FetchGet('api_token.php?command=request').then(async response => {
             var prmTokenData = await response.json();

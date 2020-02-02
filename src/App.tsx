@@ -7,7 +7,7 @@ import GameSettings from './screens/gameSettings';
 
 const App = () => {
   return (
-    //sayfalar arası yönlendirme için router-dom yapısı kuruldu
+    //SAYFALAR ARASI YONLENDIRME ICIN ROUTER-DOM YAPISI KURULDU
     <Switch>
       <Route exact path="/" component={Main} />
       <Route path="/gameSettings" component={GameSettings} />

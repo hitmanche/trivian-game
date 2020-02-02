@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MDBContainer, MDBNavbar, MDBNavbarBrand, MDBRow, MDBCol, MDBBtn, MDBNavbarNav, MDBNavItem } from 'mdbreact';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import queryString from 'query-string'
+import queryString from 'query-string';
 import { FetchGet } from '../provider/service';
 import { useStopwatch } from './timer';
 import Lottie from 'react-lottie';
@@ -37,6 +37,8 @@ const Game: React.FunctionComponent<RouteComponentProps> = ({ location, history 
     //APIDEN GELEN HTML KARAKTERLERI STRING IFADEYE CEVIRDIK
     const renderHTML = (rawHTML: string) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
+
+    //OYUN BASLADINDA YAPILMASI GEREKEN AYARLAR YAPILDI
     useEffect(() => {
         var searchData = queryString.parse(location.search);
         var query = '';
@@ -61,6 +63,7 @@ const Game: React.FunctionComponent<RouteComponentProps> = ({ location, history 
     }
     //GELEN CEVAPLARI BIRLESTIRIP SIKLARI KARISTIRDIGIMIZ YER
 
+    //KULLANICIN BELIRLEDIGI ZORLUK VE KATEGORIYE GORE TOKEN BILGISI VE SORU NUMARASINA GORE APIDEN ALINAN SORU
     function QuestionRequest(query: string) {
         return new Promise<any>((resolve, reject) => {
             FetchGet('api.php?amount=' + questionNumber + query + '&token=' + localStorage.getItem('token')).then(async res => {
@@ -77,6 +80,7 @@ const Game: React.FunctionComponent<RouteComponentProps> = ({ location, history 
         });
     }
 
+    //KULLANICI CEVAP VERDIGINDA GERCEKLESEN ISLEMLER
     function TickAnswer(response: boolean) {
         pause();
         if (response === true) {
@@ -90,6 +94,7 @@ const Game: React.FunctionComponent<RouteComponentProps> = ({ location, history 
         }
     }
 
+    //SIRADAKI SORUYA GECILIRKEN YAPILAN ISLEMLER
     function NextQuestion() {
         setQuestionData(questionType);
         QuestionRequest(queryData).then(res => {
@@ -99,6 +104,8 @@ const Game: React.FunctionComponent<RouteComponentProps> = ({ location, history 
             start();
         })
     }
+
+    //JOKER KULLANILDIGINDA YAPILMASI GEREKEN ISLEMLER
     function ClickJoker() {
         let response = Object.assign([]);
         var copyIncorrect = Object.assign([], questionData.incorrect_answers);
