@@ -10,4 +10,4 @@ What you need to do to run the project.
 
 `<npm start>` or `<yarn run>`
 
-![GitHub Logo](/)
+![Trivian Logo](/src/images/millionare.gif)
